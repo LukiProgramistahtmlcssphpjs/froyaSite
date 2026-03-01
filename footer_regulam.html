@@ -1,0 +1,139 @@
+footer {
+            width: 100% !important;
+            background: #080808 !important;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 60px 0 40px;
+            margin-top: auto;
+        }
+
+        .footer-partners {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .partners-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .partners-row img {
+            max-height: 70px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+        .footer-main-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            max-width: 150px;
+            border: none;
+        }
+
+        .footer-info {
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        /* Ikony mediów społecznościowych */
+        .social-icons-box {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-box a {
+            color: white !important;
+            font-size: 1.6rem;
+            transition: 0.3s;
+            text-decoration: none !important;
+        }
+
+        .social-icons-box a:hover {
+            color: var(--neon-lime) !important;
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px var(--neon-lime);
+        }
+
+        /* Teksty i linki w stopce */
+        .footer-mail-link {
+            color: #bbb !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-sub-links {
+            margin-top: 10px;
+        }
+
+        .footer-sub-links a {
+            color: #666 !important;
+            text-decoration: none !important;
+            margin-left: 20px;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .footer-sub-links a:hover { color: #fff !important; }
+
+        .copyright-text {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #444 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header { padding: 100px 0 40px; }
+            .glass-card { padding: 1.5rem; }
+
+            /* Loga partnerów - zawsze od lewej */
+            .partners-row { 
+                justify-content: flex-start !important; 
+                gap: 20px; 
+            }
+            .partners-row img { max-height: 45px; }
+
+            /* Logo lewo, Info prawo (Asymetria) */
+            .footer-main-row {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .footer-brand {
+                text-align: left !important;
+                width: 100%;
+            }
+
+            .footer-info {
+                text-align: right !important;
+                width: 100%;
+            }
+
+            .social-icons-box {
+                justify-content: flex-end !important;
+            }
+
+            .footer-sub-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-sub-links a { margin-left: 0; }
+        }
