@@ -1,0 +1,415 @@
+<!-- wp:html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności - DUO GYM</title>
+    
+    <!-- Fonty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteka ikon - przywrócona wersja z pliku Kontakt z zabezpieczeniem -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+    <style>
+        /* --- 1. RESET I KOLORY --- */
+        :root {
+            --neon-lime: #ccff00;
+            --neon-lime-glow: rgba(204, 255, 0, 0.4);
+            --neon-blue: #00f3ff;
+            --neon-blue-glow: rgba(0, 243, 255, 0.4);
+            --deep-bg: #050505;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background-color: #050505 !important;
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* KLUCZOWY FIX DLA IKON NA MOBILE: 
+           Blokujemy nadpisywanie czcionki ikon przez czcionkę 'Inter' */
+        .fa-brands, .fa-solid, .fa, [class*=" fa-"] {
+            font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free" !important;
+            font-style: normal !important;
+            display: inline-block !important;
+            text-decoration: none !important;
+        }
+
+        /* Kontener główny */
+        .landing-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            background-color: #050505;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(204, 255, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- 2. NAGŁÓWEK --- */
+        .legal-header {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .legal-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.2rem, 8vw, 4rem);
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--neon-lime);
+            text-shadow: 0 0 25px var(--neon-lime-glow);
+        }
+        .neon-accent { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue-glow); }
+
+        /* --- 3. TREŚĆ --- */
+        .legal-content {
+            flex-grow: 1;
+            padding-bottom: 100px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+        .glass-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            text-transform: uppercase;
+            border-left: 3px solid var(--neon-lime);
+            padding-left: 15px;
+        }
+
+        /* --- 4. STOPKA (PEŁNA SZEROKOŚĆ, ASYMETRYCZNA) --- */
+        footer {
+            width: 100% !important;
+            background: #080808 !important;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 60px 0 40px;
+            margin-top: auto;
+        }
+
+        .footer-partners {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .partners-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .partners-row img {
+            max-height: 70px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+        .footer-main-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            max-width: 150px;
+            border: none;
+        }
+
+        .footer-info {
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        /* Social Icons (FontAwesome) */
+        .social-icons-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-row a {
+            color: white !important;
+            font-size: 1.6rem;
+            transition: 0.3s;
+            text-decoration: none !important;
+        }
+
+        .social-icons-row a:hover {
+            color: var(--neon-lime) !important;
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px var(--neon-lime);
+        }
+
+        /* Linki i dane */
+        .footer-email {
+            color: #bbb !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-nav {
+            margin-top: 10px;
+        }
+
+        .footer-nav a {
+            color: #666 !important;
+            text-decoration: none !important;
+            margin-left: 20px;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .footer-nav a:hover { color: #fff !important; }
+
+        .copyright {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #444 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- 5. RESPONSYWNOŚĆ MOBILE --- */
+        @media (max-width: 768px) {
+            .legal-header { padding: 100px 0 40px; }
+            .glass-card { padding: 1.5rem; }
+
+            .partners-row { 
+                justify-content: flex-start !important; 
+                gap: 20px; 
+            }
+            .partners-row img { max-height: 45px; }
+
+            .footer-main-row {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .footer-brand {
+                text-align: left !important;
+                width: 100%;
+            }
+
+            .footer-info {
+                text-align: right !important;
+                width: 100%;
+            }
+
+            .social-icons-row {
+                justify-content: flex-end !important;
+            }
+
+            .footer-nav {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-nav a { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="landing-wrapper">
+
+    <!-- NAGŁÓWEK -->
+    <header class="legal-header">
+        <div class="container">
+            <h1>Polityka <span class="neon-accent">Prywatności</span></h1>
+            <p>Twoje dane są u nas bezpieczne. Jesteśmy tu dla Ciebie.</p>
+        </div>
+    </header>
+
+    <!-- TREŚĆ DOKUMENTU -->
+    <section class="legal-content">
+        <div class="container">
+            <div class="glass-card">
+                
+                <!-- ========================================== -->
+                <!--     MIEJSCE NA TWÓJ TEKST                  -->
+                <!-- ========================================== -->
+
+                <h2>§ 1. Postanowienia ogólne</h2>
+                <p>Administratorem danych osobowych jest firma GoAhead Łukasz Giemza, z siedzibą przy os. Armii Krajowej 6/1 Wieluń 98-300, o numerze NIP: 8322101745. 
+Z GoAhead Łukasz Giemza można kontaktować się pisemnie na adres wskazany w zdaniu poprzedzającym lub drogą e-mailową na adres: kontakt@froyafitness.pl.
+GoAhead Łukasz Giemza wyznaczył Inspektora Ochrony Danych, z którym można kontaktować się pod numerem telefonu: 575901920 lub adresem e -mail: kontakt@froyafitness.pl.
+Polityka prywatności stanowi integralną część Regulaminu. Korzystając z oferowanych przez nas usług, powierzasz nam swoje informacje. Niniejszy dokument służy jedynie jako pomoc w zrozumieniu, jakie informacje i dane są zbierane i w jakim celu oraz do czego są wykorzystywane. Te dane są bardzo dla nas ważne, dlatego prosimy o dokładne zapoznanie się z tym dokumentem gdyż określa on zasady oraz sposoby przetwarzania i ochrony danych osobowych. Dokument ten określa także zasady stosowania plików „Cookies”.
+Informujemy, że przestrzegamy zasad ochrony danych osobowych oraz wszelkich uregulowań prawnych, które są przewidziane Ustawą o ochronie danych osobowych oraz Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE.
+Na żądanie osoby, której dane osobowe są przetwarzane udzielamy wyczerpujących informacji w jaki sposób wykorzystujemy jego dane osobowe. Zawsze w jasny sposób staramy się poinformować o danych, które gromadzimy, w jaki sposób je wykorzystujemy, jakim celom mają służyć i komu je przekazujemy, jaką zapewniamy ochronę tych danych przy przekazaniu innym podmiotom oraz udzielamy informacji o instytucjach, z którymi należy się skontaktować w razie wątpliwości.</p>
+
+                <h2>§ 2. Zasady prywatności</h2>
+                <p>Szanujemy Twoją prywatność. Pragniemy zagwarantować Ci wygodę korzystania z naszych usług.
+Cenimy zaufanie, jakim Nas obdarzasz, powierzając nam swoje dane osobowe w celu realizacji usług. Zawsze korzystamy z danych osobowych w sposób uczciwy oraz tak, aby nie zawieść Twojego zaufania, tylko w zakresie niezbędnym do realizacji usług.
+Jako Użytkownik masz prawo do uzyskania pełnych i jasnych informacji o tym, w jaki sposób wykorzystujemy Twoje dane osobowe i do jakich celów są niezbędne. Zawsze w klarowny sposób informujemy o danych, które zbieramy, w jaki sposób i komu je udostępniamy oraz udzielamy informacji o podmiotach, z którymi należy się skontaktować w razie wątpliwości.
+W razie wątpliwości odnośnie wykorzystywania przez nas Twoich danych osobowych, niezwłocznie podejmiemy działania w celu wyjaśnienia i rozwiania takich wątpliwości. W sposób wyczerpujący odpowiadamy na wszystkie pytania z tym związane.
+Podejmiemy wszystkie uzasadnione działania, aby chronić Twoje dane przed nienależytym i niekontrolowanym wykorzystaniem.
+Podstawą prawną przetwarzania Twoich danych osobowych jest:
+art. 6 ust. 1 lit. a osoba, której dane dotyczą wyraziła zgodę na przetwarzanie swoich danych osobowych w jednym lub większej liczbieokreślonych celów
+art. 6 ust. 1 lit. b przetwarzanie jest niezbędne do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy
+art. 6 ust. 1 lit. c przetwarzanie jest niezbędne do wypełnienia obowiązku prawnego ciążącego na administratorze
+art. 6 ust. 1 lit. d przetwarzanie jest niezbędne do ochrony żywotnych interesów osoby, której dane dotyczą, lub innej osoby fizycznej
+art. 6 ust. 1 lit. e przetwarzanie jest niezbędne do wykonania zadania realizowanego w interesie publicznym lub w ramach sprawowania władzy publicznej powierzonej administratorowi
+art. 6 ust. 1 lit. f przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów realizowanych przez administratora lub przez stronę trzecią
+Twoje dane osobowe związane z zawarciem i realizacją umowy przetwarzane będą przez okres jej realizacji, a także przez okres nie dłuższy niż przewidują to przepisy prawa, w tym przepisy Kodeksu cywilnego oraz ustawy o rachunkowości, tj. nie dłużej niż przez 10 lat, licząc od końca roku kalendarzowego w którym ostatnia umowa została wykonana.
+Twoje dane osobowe przetwarzane w celu zawarcia i wykonania przyszłych umów będą przetwarzane do czasu zgłoszenia sprzeciwu.
+Przysługuje Ci prawo do: dostępu do swoich danych osobowych i otrzymania kopii danych osobowych podlegających przetwarzaniu, sprostowania swoich nieprawidłowych danych; żądania usunięcia danych (prawo do bycia zapomnianym) w przypadku wystąpienia okoliczności przewidzianych w art. 17 RODO; żądania ograniczenia przetwarzania danych w przypadkach wskazanych w art. 18 RODO, wniesienia sprzeciwu wobec przetwarzania danych w przypadkach wskazanych w art. 21 RODO, przenoszenia dostarczonych danych, przetwarzanych w sposób zautomatyzowany.
+Jeżeli uważasz, że Twoje dane osobowe są przetwarzane niezgodnie z prawem, możecie wnieść skargę do organu nadzorczego (Urząd Ochrony Danych Osobowych, ul. Stawki 2, Warszawa). Jeśli potrzebujesz dodatkowych informacji związanych z ochroną danych osobowych lub chcesz skorzystać z przysługujących praw, skontaktuj się z nami listownie na adres korespondencyjny.
+Przestrzegamy wszystkich obowiązujących przepisów i regulacji dotyczących ochrony danych i będziemy współpracować z organami zajmującymi się ochroną danych oraz uprawnionymi do tego organami ścigania. W przypadku braku przepisów dotyczących ochrony danych, będziemy postępować zgodnie z ogólnie przyjętymi zasadami ochrony danych, zasadami współżycia społecznego jak i ustalonymi zwyczajami.
+W razie pytań, zapraszamy do kontaktu za pomocą strony, z której zostałeś przekierowany do niniejszej Polityki prywatności. Prośba o kontakt zostanie niezwłocznie przekazana do odpowiedniej powołanej do tego osoby.
+Aby ułatwić nam odpowiedź bądź ustosunkowanie się do podanych informacji, prosimy o podanie imienia i nazwiska.</p>
+
+                <h2>§ 3. Zakres i cel zbierania danych osobowych</h2>
+                <p>Przetwarzamy niezbędne dane osobowe w celu realizacji usług oraz w celach księgowych i tylko takich.
+Zbieramy, przetwarzamy i przechowujemy następujące dane użytkowników:
+imię i nazwisko,
+adres zamieszkania,
+adres do doręczeń (jeśli jest inny niż adres zamieszkania),
+numer identyfikacji podatkowej (NIP),
+adres poczty elektronicznej (e-mail),
+numer telefonu (komórkowy, stacjonarny),
+informacje o używanej przeglądarce internetowej,
+inne dobrowolnie przekazane nam dane osobowe.
+Podanie powyższych danych przez jest całkowicie dobrowolne ale także i niezbędne do pełnej realizacji usług.
+Możemy przesyłać dane osobowe do serwerów znajdujących się poza krajem Twojego zamieszkania lub do podmiotów powiązanych, stron trzecich z siedzibą w innych krajach w tym krajach z obszaru EOG (Europejski Obszar Gospodarczy, EOG ang. European Economic Area, EEA – strefa wolnego handlu i Wspólny Rynek, obejmujące państwa Unii Europejskiej i Europejskiego Stowarzyszenia Wolnego Handlu EFTA) w celu przetwarzania danych osobowych przez takie podmioty w naszym imieniu zgodnie z postanowieniami niniejszej Polityki prywatności oraz obowiązującymi przepisami prawa, zwyczajami jak i regulacjami dotyczącymi ochrony danych.
+Dostęp do Twoich danych mogą posiadać podmioty świadczące dla usługi niezbędne do prowadzenia serwisu tj.:
+Firmy hostingowe, świadczące usługi hostingu lub usług pokrewnych dla Administratora
+Firmy, za pośrednictwem których świadczona jest usługa Newslettera
+Firmy serwisowe i wsparcia IT dokonujące konserwacji lub odpowiedzialne za utrzymanie infrastruktury IT
+Firmy pośredniczące w płatnościach on-line za towaru lub usługi oferowane w ramach Serwisu (w przypadku dokonywania transakcji zakupu w Serwisie)
+Firmy pośredniczące w płatnościach mobilnych za towaru lub usługi oferowane w ramach Serwisu (w przypadku dokonywania transakcji zakupu w Serwisie)
+Firmy odpowiedzialne za prowadzenie księgowości Administratora (w przypadku dokonywania transakcji zakupu w Serwisie)
+Firmy odpowiedzialne za dostarczanie produktów fizycznych do Użytkownika (usługi pocztowe / kurierskie w przypadku dokonywania transakcji zakupu w Serwisie)
+</p>
+<h2>§ 4. Pliki Cookie</h2>
+                <p>Stosuje pliki cookie lub podobne technologie (zwane dalej łącznie: „plikami cookie”) poprzez które należy rozumieć dane informatyczne, w szczególności pliki tekstowe, przeznaczone do korzystania ze strony internetowej i przechowywane w urządzeniach końcowych Użytkowników przeglądających strony. Informacje zbierane przy pomocy plików cookie pozwalają dostosowywać usługi i treści do indywidualnych potrzeb, a także preferencji użytkowników, jak również służą do opracowywania ogólnych statystyk dotyczących korzystania przez użytkowników ze stron. Dane gromadzone przy użyciu plików cookie są zbierane wyłącznie w celu wykonywania określonych funkcji na rzecz Użytkowników i są zaszyfrowane w sposób uniemożliwiający dostęp do nich osobom nieuprawnionym.
+Na naszej stronie stosujemy pliki cookie:
+Cookies wewnętrzne - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez system teleinformatyczny Serwisu
+Cookies zewnętrzne - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez systemy teleinformatyczne Serwisów zewnętrznych. Skrypty Serwisów zewnętrznych, które mogą umieszczać pliki Cookies na Urządzeniach Użytkownika zostały świadomie umieszczone w Serwisie poprzez skrypty i usługi udostępnione i zainstalowane w Serwisie
+Cookies sesyjne - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez Serwis podczas jednej sesji danego Urządzenia. Po zakończeniu sesji pliki są usuwane z Urządzenia Użytkownika.
+Cookies trwałe - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez Serwis do momentu ich ręcznego usunięcia. Pliki nie są usuwane automatycznie po zakończeniu sesji Urządzenia chyba że konfiguracja Urządzenia Użytkownika jest ustawiona na tryb usuwanie plików Cookie po zakończeniu sesji Urządzenia.
+W ramach naszej strony internetowej, stosowane są następujące rodzaje plików cookie ze względu na niezbędność do realizacji usług:
+niezbędne pliki cookie, umożliwiające korzystanie z usług dostępnych w ramach strony internetowej, w szczególności uwierzytelniające pliki cookie wykorzystywane do usług wymagających uwierzytelnienia;
+pliki cookie służące do zapewnienia bezpieczeństwa, w szczególności wykorzystywane do wykrywania nadużyć w zakresie uwierzytelniania;
+wydajnościowe pliki cookie, umożliwiające zbieranie informacji o sposobie korzystania ze stron internetowych;
+funkcjonalne pliki cookie, umożliwiające „zapamiętanie” wybranych przez użytkownika ustawień i personalizację interfejsu użytkownika;
+reklamowe pliki cookie, umożliwiające dostarczanie użytkownikom treści reklamowych dostosowanych do ich zainteresowań. 
+Oprogramowanie do przeglądania stron internetowych (przeglądarka internetowa) zazwyczaj domyślnie dopuszcza przechowywanie plików cookie w urządzeniu końcowym. Użytkownik przeglądający stronę internetową może samodzielnie i w każdym czasie zmienić ustawienia dotyczące plików cookie, określając warunki ich przechowywania i uzyskiwania dostępu przez pliki cookie do swojego urządzenia. Zmiany ustawień, o których mowa w zdaniu poprzednim, Klient może dokonać za pomocą ustawień przeglądarki internetowej. Ustawienia te mogą zostać zmienione w szczególności w taki sposób, aby blokować automatyczną obsługę plików cookie w ustawieniach przeglądarki internetowej bądź informować o ich każdorazowym zamieszczeniu plików cookie na urządzeniu Użytkownika. Szczegółowe informacje o możliwości i sposobach obsługi plików cookie dostępne są w ustawieniach oprogramowania (przeglądarki internetowej).
+Korzystanie ze strony internetowej, bez zmiany ustawień w zakresie plików cookie, oznacza wyrażenie zgody na zapisywanie plików cookie. Klienta zawsze może wycofać zgodę poprzez zmianę ustawień dotyczących plików cookie.Informacje w jaki sposób dokonać konfiguracji ustawień plików cookie w przykładowych przeglądarkach internetowych Użytkownik może znaleźć tutaj:
+Chrome
+Opera
+FireFox
+Edge
+Safari
+Internet Explorer 11</p>
+
+                <h2>§ 5. Wtyczki Social Media</h2>
+                <p>Wtyczki tak zwane plug-ins portali społecznościowych, mogą znajdować się na naszej stronie.
+Facebook obsługiwany jest przez Facebook Inc., 1601 S. California Ave, Palo Alto, CA 94304, USA Facebook. Aby zobaczyć wtyczki Facebook przejdź do: https://developers.facebook.com/docs/plugins
+Twitter obsługiwany jest Twitter Inc., 1355 Market Street, Suite 900, San Francisco, CA 94103, USA. Aby zobaczyć wtyczki Twittera przejdź do: https://dev.twitter.com/web/tweet-button
+Wtyczka przekazuje jej dostawcy jedynie informację o tym, do których z naszych stron internetowych miałeś dostęp i w jakim czasie. Jeśli podczas oglądania naszej strony bądź przebywania na niej, użytkownik jest zalogowany do swojego konta znajdującego się np. na Facebooku lub Twitterze, dostawca jest w stanie łączyć Twoje zainteresowania, preferencję informacyjne, oraz inne dane, pozyskane np. poprzez kliknięcie przycisku Lubię to czy pozostawienie komentarza, bądź wpisanie nazwy profilu w wyszukiwanych. Taka informacja również zostanie przekazana przez przeglądarkę bezpośrednio do dostawcy.
+Aby uniknąć odnotowania wizyty na wybranym koncie użytkownika przez Plug-in na naszej stronie internetowej musisz wylogować się ze swojego konta przed rozpoczęciem przeglądania naszej strony internetowej.</p>
+<h2>§ 6. Prawa i obowiązki</h2>
+                <p>Mamy prawo a w przypadkach prawem określonych także i ustawowy obowiązek do przekazania wybranych bądź wszystkich informacji dotyczących danych osobowych organom władzy publicznej bądź osobom trzecim, które zgłoszą takie żądanie udzielenia informacji na podstawie obowiązujących przepisów prawa polskiego.
+Użytkownik ma prawo do:
+dostępu do danych osobowych. Użytkownikowi przysługuje prawo uzyskania dostępu do swoich danych osobowych, realizowane na żądanie złożone do Administratora
+sprostowania danych osobowych. Użytkownikowi przysługuje prawo żądania od Administratora niezwłocznego sprostowania danych osobowych, które są nieprawidłowe lub / oraz uzupełnienia niekompletnych danych osobowych, realizowane na żądanie złożone do Administratora
+usunięcia danych osobowych. Użytkownikowi przysługuje prawo żądania od Administratora niezwłocznego usunięcia danych osobowych, realizowane na żądanie złożone do Administratora W przypadku kont użytkowników, usunięcie danych polega na anonimizacji danych umożliwiających identyfikację Użytkownika. Administrator zastrzega sobie prawo wstrzymania realizacji żądania usunięcia danych w celu ochrony prawnie uzasadnionego interesu Administratora (np. w gdy Użytkownik dopuścił się naruszenia Regulaminu czy dane zostały pozyskane wskutek prowadzonej korespondencji). W przypadku usługi Newsletter, Użytkownik ma możliwość samodzielnego usunięcia swoich danych osobowych korzystając z odnośnika umieszczonego w każdej przesyłanej wiadomości e-mail.
+ograniczenia przetwarzania danych osobowych. Użytkownikowi przysługuje prawo ograniczenia przetwarzania danych osobowych w przypadkach wskazanych w art. 18 RODO, m.in. kwestionowania prawidłowość danych osobowych, realizowane na żądanie złożone do Administratora
+przenoszenia danych osobowych. Użytkownikowi przysługuje prawo uzyskania od Administratora, danych osobowych dotyczących Użytkownika w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego, realizowane na żądanie złożone do Administratora
+wniesienia sprzeciwu wobec przetwarzania danych osobowych. Użytkownikowi przysługuje prawo wniesienia sprzeciwu wobec przetwarzania jego danych osobowych w przypadkach określonych w art. 21 RODO, realizowane na żądanie złożone do Administratora
+wniesienia skargi. Użytkownikowi przysługuje prawo wniesienia skargi do organu nadzorczego zajmującego się ochroną danych osobowych.</p>
+
+                <!-- ========================================== -->
+                <!--     KONIEC TWOJEGO TEKSTU                  -->
+                <!-- ========================================== -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STOPKA V2.0 (POPRAWIONA) -->
+    <footer>
+        <div class="container">
+            
+            <!-- Partnerzy -->
+            <div class="footer-partners">
+                <p style="color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; font-weight: 700; font-family: 'Montserrat';">Partnerzy Płatności i Dostawy:</p>
+                <div class="partners-row">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/pobrane.png" alt="InPost">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/blik.jpg" alt="BLIK">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/payU.png" alt="PayU">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/Tpay.png" alt="Tpay">
+                </div>
+            </div>
+
+            <div class="footer-main-row">
+                
+                <div class="footer-brand">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/logo-fitness-traansparentne-1.png" alt="Logo Duo Gym">
+                </div>
+
+                <div class="footer-info">
+                    
+                    <!-- Ikony Social Media (FontAwesome - Powrót do sprawdzonej metody) -->
+                    <div class="social-icons-row">
+                        <a href="https://instagram.com/froyafitness" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@froyafitness" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://facebook.com/froyafitness" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                    
+                    <a href="mailto:kontakt@froyafitness.pl" class="footer-email">kontakt@froyafitness.pl</a>
+                    
+                    <div class="footer-nav">
+                        <a href="/regulamin">Regulamin</a>
+                        <a href="/polityka-prywatnosci">Polityka Prywatności</a>
+                    </div>
+                    
+                    <p class="copyright">&copy; 2026 DUO GYM / Froya Fitness. All rights reserved.</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
+<!-- /wp:html -->
