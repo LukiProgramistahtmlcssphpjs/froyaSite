@@ -1,0 +1,452 @@
+<!-- wp:html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin - DUO GYM</title>
+    
+    <!-- Fonty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteka ikon (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+    <style>
+        /* --- 1. ZMIENNE I RESET --- */
+        :root {
+            --neon-lime: #ccff00;
+            --neon-lime-glow: rgba(204, 255, 0, 0.4);
+            --neon-blue: #00f3ff;
+            --neon-blue-glow: rgba(0, 243, 255, 0.4);
+            --deep-bg: #050505;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background-color: #050505 !important;
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* KLUCZOWY FIX DLA IKON: Blokujemy nadpisywanie czcionki ikon przez czcionkę systemową */
+        .fa-brands, .fa-solid, .fa, [class*=" fa-"] {
+            font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free" !important;
+            font-style: normal !important;
+            display: inline-block !important;
+            text-decoration: none !important;
+        }
+
+        /* Kontener główny - Sticky Footer */
+        .landing-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            background-color: #050505;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(204, 255, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- 2. NAGŁÓWEK --- */
+        .page-header {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.2rem, 8vw, 4rem);
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--neon-lime);
+            text-shadow: 0 0 25px var(--neon-lime-glow);
+        }
+        .neon-accent { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue-glow); }
+
+        /* --- 3. TREŚĆ (SZKLANA KARTA) --- */
+        .content-section {
+            flex-grow: 1;
+            padding-bottom: 100px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+        .glass-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            text-transform: uppercase;
+            border-left: 3px solid var(--neon-lime);
+            padding-left: 15px;
+        }
+
+        /* --- 4. STOPKA (UKŁAD IDENTYCZNY JAK LP / KONTAKT) --- */
+        footer {
+            width: 100% !important;
+            background: #080808 !important;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 60px 0 40px;
+            margin-top: auto;
+        }
+
+        .footer-partners {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .partners-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .partners-row img {
+            max-height: 70px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+        .footer-main-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            max-width: 150px;
+            border: none;
+        }
+
+        .footer-info {
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        /* Ikony mediów społecznościowych */
+        .social-icons-box {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-box a {
+            color: white !important;
+            font-size: 1.6rem;
+            transition: 0.3s;
+            text-decoration: none !important;
+        }
+
+        .social-icons-box a:hover {
+            color: var(--neon-lime) !important;
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px var(--neon-lime);
+        }
+
+        /* Teksty i linki w stopce */
+        .footer-mail-link {
+            color: #bbb !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-sub-links {
+            margin-top: 10px;
+        }
+
+        .footer-sub-links a {
+            color: #666 !important;
+            text-decoration: none !important;
+            margin-left: 20px;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .footer-sub-links a:hover { color: #fff !important; }
+
+        .copyright-text {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #444 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- 5. RESPONSYWNOŚĆ MOBILE --- */
+        @media (max-width: 768px) {
+            .page-header { padding: 100px 0 40px; }
+            .glass-card { padding: 1.5rem; }
+
+            /* Loga partnerów - zawsze od lewej */
+            .partners-row { 
+                justify-content: flex-start !important; 
+                gap: 20px; 
+            }
+            .partners-row img { max-height: 45px; }
+
+            /* Logo lewo, Info prawo (Asymetria) */
+            .footer-main-row {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .footer-brand {
+                text-align: left !important;
+                width: 100%;
+            }
+
+            .footer-info {
+                text-align: right !important;
+                width: 100%;
+            }
+
+            .social-icons-box {
+                justify-content: flex-end !important;
+            }
+
+            .footer-sub-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-sub-links a { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="landing-wrapper">
+
+    <!-- NAGŁÓWEK -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Regulamin <span class="neon-accent">Sklepu</span></h1>
+            <p>Przejrzyste zasady to podstawa udanego treningu.</p>
+        </div>
+    </header>
+
+    <!-- GŁÓWNA TREŚĆ REGULAMINU -->
+    <section class="content-section">
+        <div class="container">
+            <div class="glass-card">
+                
+                <!-- ========================================== -->
+                <!-- START: TUTAJ WKLEJ TREŚĆ REGULAMINU        -->
+                <!-- ========================================== -->
+
+                <h2>§ 1. Postanowienia ogólne</h2>
+                <p>Sklep www.froyafitness.pl działa na zasadach określonych w niniejszym Regulaminie.
+Regulamin określa warunki zawierania i rozwiązywania Umów Sprzedaży Produktu oraz tryb postępowania reklamacyjnego, a także rodzaje i zakres usług świadczonych drogą elektroniczną przez Sklep www.froya.pl, zasady świadczenia tych usług, warunki zawierania i rozwiązywania umów o świadczenie usług drogą elektroniczną.
+Każdy Usługobiorca z chwilą podjęcia czynności zmierzających do korzystania z Usług Elektronicznych Sklepu www.froya.pl zobowiązany jest do przestrzegania postanowień niniejszego Regulaminu.
+W sprawach nieuregulowanych w niniejszym Regulaminie mają zastosowanie przepisy:
+ustawy o świadczeniu usług drogą elektroniczną z dnia 18 lipca 2002 r.,
+ustawy o prawach konsumenta z dnia 30 maja 2014 r.,
+ustawy o pozasądowym rozwiązywaniu sporów konsumenckich z dnia 23 września 2016 r.,
+ustawy Kodeks cywilny z dnia 23 kwietnia 1964 r. oraz inne właściwe przepisy prawa polskiego.</p>
+
+                <h2>§ 2. Definicje</h2>
+                <p>FORMULARZ ZAMÓWIENIA – formularz dostępny na stronie internetowej www.froya.pl umożliwiający złożenie Zamówienia.<br>
+KLIENT – Usługobiorca, który zamierza zawrzeć lub zawarł Umowę Sprzedaży ze Sprzedawcą.<br>
+KONSUMENT – osoba fizyczna, która dokonuje z przedsiębiorcą czynności prawnej niezwiązane bezpośrednio z jej działalnością gospodarczą lub zawodową.<br>
+PRZEDSIĘBIORCA - osoba fizyczna, osoba prawna i jednostka organizacyjna niebędąca osobą prawną, której ustawa przyznaje zdolność prawną, prowadząca we własnym imieniu działalność gospodarczą lub zawodową.<br>
+PRODUKT – dostępna w Sklepie rzecz ruchoma będąca przedmiotem Umowy Sprzedaży między Klientem a Sprzedawcą.<br>
+REGULAMIN - niniejszy regulamin Sklepu.<br>
+SKLEP - Sklep internetowy Usługodawcy działający pod adresem www.froyafitness.pl.<br>
+SPRZEDAWCA, USŁUGODAWCA –  GoAhead Łukasz Giemza, NIP: 8322101745      Wieluń 98-300 ul. Armii Krajowej 6/1,    email: kontakt@froyafitness.pl   Tel.: 575901920.<br>
+UMOWA SPRZEDAŻY – Umowa Sprzedaży Produktu zawarta między Klientem, a Sprzedawcą za pośrednictwem Sklepu.<br>
+ZAMÓWIENIE - oświadczenie woli Klienta stanowiące ofertę zawarcia Umowy Sprzedaży Produktu ze Sprzedawcą.<br>
+CENA – wartość wyrażona w jednostkach pieniężnych, którą Klient jest obowiązany zapłacić Sprzedawcy za Produkt.<br>
+                </p>
+
+                <h2>§ 3. INFORMACJE DOTYCZĄCE PRODUKTÓW ORAZ ICH ZAMAWIANIA</h2>
+                <p>Sklep www.froyafitness.pl prowadzi sprzedaż Produktów za pośrednictwem sieci Internet.
+Produkty oferowane w Sklepie są nowe, zgodne z umową i zostały legalnie wprowadzone na rynek polski.
+Informacje znajdujące się na stronach internetowych Sklepu nie stanowią oferty w rozumieniu przepisów prawa. Klient, składając zamówienie, składa ofertę kupna określonego Produktu na warunkach podanych w jego opisie.
+Cena Produktu uwidoczniona na stronie internetowej Sklepu podana jest w złotych polskich (PLN) i zawiera wszystkie składniki. Cena nie zawiera kosztów dostawy.
+Zamówienia można składać poprzez witrynę internetową za pomocą Formularza Zamówień (Sklep www.froyafitness.pl) – 24 godziny na dobę przez cały rok.
+Warunkiem złożenia Zamówienia w Sklepie przez Klienta jest zapoznanie się z Regulaminem i akceptacja jego postanowień w czasie składania Zamówienia.</p>
+
+<h2>§ 4. ZAWARCIE UMOWY SPRZEDAŻY</h2>
+                <p>Do zawarcia Umowy Sprzedaży, niezbędne jest wcześniejsze złożenie przez Klienta Zamówienia udostępnionym przez Sprzedawcę sposobem, zgodnie z § 3 pkt 5 oraz 6 Regulaminu.
+Po złożeniu Zamówienia Sprzedawca niezwłocznie potwierdza jego otrzymanie.
+Potwierdzenie przyjęcia Zamówienia, o którym mowa w pkt 2 niniejszego paragrafu powoduje związanie Klienta jego Zamówieniem. Potwierdzenie otrzymania Zamówienia następuje poprzez przesłanie wiadomości e-mail.
+Potwierdzenie otrzymania Zamówienia zawiera:
+potwierdzenie wszystkich istotnych elementów Zamówienia,
+formularz odstąpienia od umowy,
+niniejszy Regulamin zawierający pouczenie o prawie do odstąpienia od umowy.
+Z chwilą otrzymania przez Klienta wiadomości e-mail, o której mowa w pkt 4 niniejszego paragrafu, zostaje zawarta Umowa Sprzedaży między Klientem, a Sprzedawcą.
+Każda Umowa Sprzedaży będzie potwierdzana dowodem zakupu, który będzie dołączany do Produktu.</p>
+
+                <h2>§ 5. SPOSOBY PŁATNOŚCI</h2>
+                <p>Sprzedawca udostępnia następujące sposoby płatności:
+płatność przelewem tradycyjnym na rachunek bankowy Sprzedawcy,
+płatność za pośrednictwem elektronicznego systemu płatności.
+W przypadku płatności przelewem tradycyjnym, wpłaty należy dokonać na rachunek bankowy numer: 75 1050 1937 1000 0091 5164 8434 (Bank ING bank Śląski S.A.) W tytule przelewu należy wpisać „Zamówienie nr …”.
+W przypadku płatności za pośrednictwem elektronicznego systemu płatności Klient dokonuje zapłaty przed rozpoczęciem realizacji Zamówienia. Elektroniczny system płatności umożliwia dokonanie płatności za pomocą karty kredytowej lub szybkiego przelewu z wybranych polskich banków.
+Klient zobowiązany jest do dokonania zapłaty ceny z tytułu Umowy Sprzedaży w terminie 7 dni roboczych od dnia jej zawarcia, chyba że Umowa Sprzedaży stanowi inaczej.
+Produkt zostanie wysłany dopiero po jego opłaceniu.</p>
+
+                <h2>§ 6. KOSZT, TERMIN I SPOSOBY DOSTAWY PRODUKTU</h2>
+                <p>Koszty dostawy Produktu, które pokrywa Klient, są ustalane w trakcie procesu składania Zamówienia.
+Na termin dostawy Produktu składa się czas kompletowania Produktu oraz czas dostawy Produktu przez przewoźnika:
+czas kompletowania Produktów wynosi 1-2 dni roboczych,
+dostawa Produktów stanowiących rzeczy ruchome przez przewoźnika następuje w terminie przez niego deklarowanym tj. 3-4 dni roboczych od momentu nadania przesyłki (dostawa następuje wyłącznie w dni robocze z wyłączeniem sobót, niedziel i świąt).
+Zakupione w Sklepie Produkty są wysyłane wyłącznie na terenie Polski za pośrednictwem firmy kurierskiej.</p>
+
+<h2>§ 7. REKLAMACJA PRODUKTU</h2>
+                <p>Reklamacja z tytułu braku zgodności Produktu z umową.<br>
+Podstawa i zakres odpowiedzialności Sprzedawcy wobec Klienta będącego Konsumentem z tytułu braku zgodności Produktu z umową są określone w ustawie o prawach konsumenta z dnia z dnia 30 maja 2014 r.,
+podstawa i zakres odpowiedzialności Sprzedawcy wobec Klienta będącego Przedsiębiorcą, z tytułu rękojmi są określone w ustawie Kodeks cywilny z dnia 23 kwietnia 1964 r.,
+Sprzedawca jest odpowiedzialny wobec Klienta będącego Konsumentem za brak zgodności Produktu z umową istniejący w chwili dostarczenia Produktu i ujawniony w ciągu 2 lat od tej chwili, chyba że termin przydatności Produktu określony przez Sprzedawcę lub osoby działające w jego imieniu jest dłuższy,
+zawiadomienia o braku zgodności Produktu z umową oraz zgłoszenie odpowiedniego żądania można dokonać za pośrednictwem poczty elektronicznej na adres: kontakt@froyafitness.pl
+w powyższej wiadomości w formie pisemnej lub elektronicznej należy podać jak najwięcej informacji i okoliczności dotyczących przedmiotu reklamacji, w szczególności rodzaj i datę wystąpienia nieprawidłowości oraz dane kontaktowe. Podane informacje znacznie ułatwią i przyspieszą rozpatrzenie reklamacji przez Sprzedawcę,
+dla oceny nieprawidłowości i niezgodności Produktu z umową, Konsument ma obowiązek udostępnić Produkt Sprzedawcy, a Sprzedawca zobowiązany jest do odebrania go na swój koszt,
+Sprzedawca ustosunkuje się do żądania Klienta niezwłocznie, nie później niż w terminie 14 dni od momentu zgłoszenia reklamacji,
+w przypadku reklamacji Klienta będącego Konsumentem – nierozpatrzenie reklamacji w terminie 14 dni od jej zgłoszenia jest jednoznaczne z jej uwzględnieniem,
+w związku z uzasadnioną reklamacją Klienta będącego Konsumentem Sprzedawca odpowiednio:
+pokrywa koszty naprawy lub wymiany oraz ponownego dostarczenia Produktu do Klienta,
+obniża cenę Produktu (obniżona cena musi pozostawać w proporcji ceny towaru zgodnego z umową do towaru niezgodnego z umową) i zwraca Konsumentowi wartość obniżonej ceny najpóźniej w terminie 14 dni od otrzymania oświadczenia o obniżeniu ceny od Konsumenta,
+w przypadku odstąpienia od umowy przez Konsumenta – Sprzedawca zwraca mu cenę Produktu najpóźniej w terminie 14 dni od dnia otrzymania zwracanego towaru lub dowodu jego odesłania. W razie odstąpienia od umowy, Konsument zobowiązany jest niezwłocznie zwrócić towar do Sprzedawcy na koszt Sprzedawcy,
+odpowiedź na reklamację jest przekazywana na papierze lub innym trwałym nośniku np. wiadomość mailowa lub SMS.
+
+                <h2>§ 8. PRAWO ODSTĄPIENIA OD UMOWY</h2>
+                <p>
+Z zastrzeżeniem pkt 10 niniejszego paragrafu, Klient będący jednocześnie Konsumentem, który zawarł umowę na odległość, może od niej odstąpić bez podania przyczyn, składając stosowne oświadczenie w terminie 30 dni.
+W razie odstąpienia od umowy, Umowa Sprzedaży jest uważana za niezawartą, a Konsument ma obowiązek zwrócić Produkt Sprzedawcy lub przekazać go osobie upoważnionej przez Sprzedawcę do odbioru niezwłocznie, jednak nie później niż 14 dni od dnia, w którym odstąpił od umowy, chyba że Sprzedawca zaproponował, że sam odbierze Produkt. Do zachowania terminu wystarczy odesłanie Produktu przed jego upływem.
+W przypadku odstąpienia od Umowy Sprzedaży należy dokonać zwrotu Produktu na adres: Wrocław 54-608 ul. Marka Hłaski 51/10
+Konsument ponosi odpowiedzialność za zmniejszenie wartości Produktu będące wynikiem korzystania z niego w sposób wykraczający poza konieczny do stwierdzenia charakteru, cech i funkcjonowania Produktu, chyba że Sprzedawca nie poinformował Konsumenta lub podmiotu, o którym mowa w § 10 o sposobie i terminie wykonania prawa odstąpienia od umowy oraz nie udostępnił mu wzoru formularza odstąpienia od umowy. W celu stwierdzenia charakteru, cech i funkcjonowania Produktów Konsument powinien obchodzić się z Produktami i sprawdzać je tylko w taki sam sposób, w jaki mógłby to zrobić w sklepie stacjonarnym.
+Z zastrzeżeniem pkt 6 oraz 8 niniejszego paragrafu, Sprzedawca dokona zwrotu wartości Produktu wraz z kosztami jego dostawy przy użyciu takiego samego sposobu zapłaty, jakiego użył Konsument, chyba że Konsument wyraźnie zgodził się na inny sposób zwrotu, który nie wiąże się dla niego z żadnymi kosztami. Z zastrzeżeniem pkt 7 niniejszego paragrafu, zwrot nastąpi niezwłocznie, a najpóźniej w terminie 30 dni od momentu otrzymania przez Sprzedawcę oświadczenia o odstąpieniu od Umowy Sprzedaży.
+Jeżeli Konsument wybrał sposób dostawy Produktu inny niż najtańszy zwykły sposób dostarczenia oferowany przez Sklep, Sprzedawca nie jest zobowiązany do zwrotu mu, poniesionych przez niego dodatkowych kosztów.
+Jeżeli Sprzedawca nie zaproponował, że sam odbierze Produkt od Konsumenta może wstrzymać się ze zwrotem płatności otrzymanych od Konsumenta do chwili otrzymania rzeczy z powrotem lub dostarczenia dowodu jej odesłania, w zależności od tego, które zdarzenie nastąpi wcześniej.
+Konsument odstępujący od Umowy Sprzedaży, zgodnie z pkt 1 niniejszego paragrafu, ponosi jedynie koszty odesłania Produktu do Sprzedawcy.
+Termin czternastodniowy, w którym Konsument może odstąpić od umowy, liczy się dla umowy, w wykonaniu której Sprzedawca wydaje Produkt będąc zobowiązanym do przeniesienia jego własności - od dnia, w którym Konsument (lub wskazana przez niego osoba trzecia inna niż przewoźnik) objął Produkt w posiadanie.
+Prawo odstąpienia od umowy zawartej na odległość nie przysługuje Konsumentowi w wypadku Umowy Sprzedaży m.in., w której przedmiotem świadczenia jest towar nieprefabrykowany, wyprodukowany według specyfikacji Konsumenta lub służący zaspokojeniu jego zindywidualizowanych potrzeb.
+Prawo odstąpienia od Umowy Sprzedaży przysługuje zarówno Sprzedawcy, jak i Klientowi, w przypadku niewykonania przez drugą stronę umowy swojego zobowiązania w terminie ściśle określonym.</p>
+
+                <h2>§ 9. RODZAJ I ZAKRES USŁUG ELEKTRONICZNYCH</h2>
+                <p>Usługodawca umożliwia za pośrednictwem Sklepu korzystanie z Usługi Elektronicznej jaką jest zawieranie Umów Sprzedaży Produktu.
+Świadczenie Usługi Elektronicznej na rzecz Usługobiorców w Sklepie odbywa się na warunkach określonych w Regulaminie.
+Usługodawca ma prawo do zamieszczania na stronie internetowej Sklepu treści reklamowych. Treści te, stanowią integralną część Sklepu i prezentowanych w nim materiałów.
+</p>
+
+<h2>§ 10. WARUNKI ŚWIADCZENIA I ZAWIERANIA UMÓW O ŚWIADCZENIE USŁUG ELEKTRONICZNYCH</h2>
+                <p>Świadczenie Usługi Elektronicznej określonej w § 9 pkt 1 Regulaminu przez Usługodawcę jest nieodpłatne.
+Umowa o świadczenie Usługi Elektronicznej polegającej na umożliwieniu złożenia Zamówienia w Sklepie zawierana jest na czas oznaczony i ulega rozwiązaniu z chwilą złożenia Zamówienia albo zaprzestania jego składania przez Usługobiorcę.
+Wymagania techniczne niezbędne do współpracy z systemem teleinformatycznym, którym posługuje się Usługodawca:
+komputer (lub urządzenie mobilne) z dostępem do Internetu,
+dostęp do poczty elektronicznej,
+przeglądarka internetowa,
+włączenie w przeglądarce internetowej Cookies oraz Javascript.
+Usługobiorca zobowiązany jest do korzystania ze Sklepu w sposób zgodny z prawem i dobrymi obyczajami mając na uwadze poszanowanie dóbr osobistych i praw własności intelektualnej osób trzecich.
+Usługobiorca zobowiązany jest do wprowadzania danych zgodnych ze stanem faktycznym.
+Usługobiorcę obowiązuje zakaz dostarczania treści o charakterze bezprawnym.</p>
+
+                <h2>§ 11. REKLAMACJE ZWIĄZANE ZE ŚWIADCZENIEM USŁUG ELEKTRONICZNYCH</h2>
+                <p>Reklamacje związane ze świadczeniem Usługi Elektronicznej za pośrednictwem Sklepu Usługobiorca może składać za pośrednictwem poczty elektronicznej na adres: kontakt@froyafitnes.pl
+W powyższej wiadomości e-mail, należy podać jak najwięcej informacji i okoliczności dotyczących przedmiotu reklamacji, w szczególności rodzaj i datę wystąpienia nieprawidłowości oraz dane kontaktowe. Podane informacje znacznie ułatwią i przyspieszą rozpatrzenie reklamacji przez Usługodawcę.
+Rozpatrzenie reklamacji przez Usługodawcę następuje niezwłocznie, nie później niż w terminie 14 dni od momentu zgłoszenia.
+Odpowiedź Usługodawcy w sprawie reklamacji jest wysyłana na adres e-mail Usługobiorcy podany w zgłoszeniu reklamacyjnym lub w inny podany przez Usługobiorcę sposób.</p>
+
+                <h2>§ 12. POSTANOWIENIA KOŃCOWE</h2>
+                <p>Umowy zawierane poprzez Sklep zawierane są zgodnie z prawem polskim.
+W przypadku niezgodności jakiejkolwiek części Regulaminu z obowiązującym prawem, w miejsce zakwestionowanego przepisu Regulaminu zastosowanie mają właściwe przepisy prawa polskiego.
+Wszelkie spory wynikłe z Umów Sprzedaży między Sklepem, a Konsumentami będą rozstrzygane w pierwszej kolejności na drodze negocjacji, z intencją polubownego zakończenia sporu, z uwzględnieniem ustawy o pozasądowym rozwiązywaniu sporów konsumenckich. Jeśli jednak nie byłoby to możliwe, lub też byłoby niesatysfakcjonujące dla którejkolwiek ze stron, spory będą rozstrzygane przez właściwy sąd powszechny, zgodnie z pkt 4 niniejszego paragrafu.
+Ewentualne spory powstałe pomiędzy Usługodawcą, a Usługobiorcą (Klientem) będącym jednocześnie Konsumentem zostają poddane sądom właściwym zgodnie z przepisami kodeksu postępowania cywilnego z dnia 17 listopada 1964 r.
+Klient będący Konsumentem ma również prawo do skorzystania z pozasądowych sposobów rozstrzygania sporów w szczególności poprzez złożenie po zakończeniu postępowania reklamacyjnego wniosku o wszczęcie mediacji lub wniosku o rozpatrzenie sprawy przez sąd polubowny (wniosek można pobrać na stronie internetowej http://www.uokik.gov.pl/download.php?plik=6223). Wykaz Stałych Polubownych Sądów Konsumenckich działających przy Wojewódzkich Inspektoratach Inspekcji Handlowej dostępny jest na stronie internetowej: http://www.uokik.gov.pl/wazne_adresy.php#faq596. Konsument może skorzystać także z bezpłatnej pomocy powiatowego (miejskiego) rzecznika konsumentów lub organizacji społecznej, do której zadań statutowych należy ochrona konsumentów. Pozasądowe dochodzenie roszczeń po zakończeniu postępowania reklamacyjnego jest bezpłatne.
+Konsument w celu polubownego rozwiązania sporu może w szczególności złożyć skargę za pośrednictwem platformy internetowej ODR (Online Dispute Resolution), dostępnej pod adresem: http://ec.europa.eu/consumers/odr/.</p>
+
+                <!-- Dodawaj kolejne paragrafy używając <h2> i <p> -->
+
+                <!-- ========================================== -->
+                <!-- KONIEC: TUTAJ KOŃCZY SIĘ TWÓJ TEKST        -->
+                <!-- ========================================== -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer>
+        <div class="container">
+            
+            <!-- Sekcja Partnerzy (Loga do lewej) -->
+            <div class="footer-partners">
+                <p style="color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; font-weight: 700; font-family: 'Montserrat';">Partnerzy Płatności i Dostawy:</p>
+                <div class="partners-row">
+                    <!-- Podmień linki na swoje z WordPress Media Library -->
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/pobrane.png" alt="InPost">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/blik.jpg" alt="BLIK">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/payU.png" alt="PayU">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/Tpay.png" alt="Tpay">
+                </div>
+            </div>
+
+            <!-- Dolny rząd stopki (Asymetryczny) -->
+            <div class="footer-main-row">
+                
+                <!-- Logo Duo Gym (Zawsze po lewej) -->
+                <div class="footer-brand">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/logo-fitness-traansparentne-1.png" alt="Logo DUO GYM">
+                </div>
+
+                <!-- Dane i Sociale (Na PC i Mobile do prawej) -->
+                <div class="footer-info">
+                    
+                    <div class="social-icons-box">
+                        <a href="https://instagram.com/froyafitness" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@froyafitness" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://facebook.com/froyafitness" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                    
+                    <a href="mailto:kontakt@froyafitness.pl" class="footer-mail-link">kontakt@froyafitness.pl</a>
+                    
+                    <div class="footer-sub-links">
+                        <a href="/regulamin">Regulamin</a>
+                        <a href="/polityka-prywatnosci">Polityka Prywatności</a>
+                    </div>
+                    
+                    <p class="copyright-text">&copy; 2026 DUO GYM / Froya Fitness. All rights reserved.</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
+<!-- /wp:html -->
