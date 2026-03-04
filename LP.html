@@ -409,6 +409,7 @@
                     <!-- ZMIEŃ ADRESY URL NA SWOJE PONIŻEJ -->
                     <a href="https://froyafitness.pl/froya-fitness/" class="nav-link">Froya Fitness</a>
                     <a href="https://froyafitness.pl/kontakt/" class="nav-link">Kontakt</a>
+                    <a href="https://froyafitness.pl/koszyk/" class="nav-link">🛒 Koszyk</a>
                 </div>
             </div>
         </nav>
@@ -656,6 +657,57 @@
                 </div>
             </div>
         </section>
+        <!-- SEKCJA FILM - BAGGY SOUND -->
+<section style="padding: 80px 0; border-top: 1px solid var(--glass-border);">
+    <div class="container">
+        <div class="glass-card" style="overflow: hidden;">
+            <div class="hero-content" style="align-items: center; gap: 40px;">
+                
+                <!-- LEWA STRONA: Film -->
+                <div class="hero-image-wrapper" style="margin: 0;">
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 9/16; max-width: 340px; margin: 0 auto;">
+                        <!-- WKLEJ TUTAJ SWÓJ FILM -->
+                        <!-- OPCJA A: Plik wideo z WordPressa (zalecane) -->
+                        <video 
+                            src="WKLEJ_TUTAJ_URL_FILMU_Z_WORDPRESSA" 
+                            controls 
+                            loop 
+                            muted
+                            playsinline
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block;">
+                        </video>
+                        <!-- OPCJA B: Jeśli masz film na YouTube/TikTok - usuń <video> powyżej i użyj <iframe>:
+                        <iframe 
+                            src="https://www.youtube.com/embed/TWOJ_ID_FILMU" 
+                            style="width:100%; height:100%; border:none; border-radius:12px;" 
+                            allowfullscreen>
+                        </iframe>
+                        -->
+                    </div>
+                </div>
+
+                <!-- PRAWA STRONA: Tekst -->
+                <div style="text-align: left;">
+                    <h2 style="font-size: clamp(1.8rem, 5vw, 3.5rem); line-height: 1.15; margin-bottom: 25px;">
+                        Zakochasz się<br>
+                        <span class="highlight-duo">w tym dźwięku.</span>
+                    </h2>
+                    <p style="font-size: 1.1rem; color: #aaa !important; max-width: 420px; line-height: 1.8;">
+                        Ten charakterystyczny <em>klik</em> — to dźwięk neodymowych magnesów Baggy łączących się z metalem. 
+                        Pewny. Mocny. Natychmiastowy.
+                    </p>
+                    <p style="font-size: 1rem; color: #777 !important; margin-top: 15px;">
+                        Raz to usłyszysz — zapamiętasz na zawsze.
+                    </p>
+                    <a href="#offer" class="btn-cta" style="margin-top: 30px; display: inline-flex;">
+                        Chcę to mieć <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- 6. Social Proof -->
         <section class="social-proof-section">
@@ -857,7 +909,7 @@
             spinner.style.display = 'block';
             resultContent.innerHTML = '';
 
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             const prompt = `Trener personalny DUO GYM. Styl: motywujący, konkretny, gym bro. 
             Cel: ${goal}, Poziom: ${level}. 
             Wypisz 3-4 ćwiczenia w punktach HTML (<ul>). Bez wstępu.`;
