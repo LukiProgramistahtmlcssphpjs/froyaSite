@@ -886,52 +886,51 @@
     <script>
         // --- FUNKCJE GLOBALNE DLA ONCLICK ---
 
-        const apiKey = "AIzaSyDBNZHamE8jTV088f4SwKvncAwFtIAcXZU"; // <--- TU WKLEJ KLUCZ API
+        var apiKey = "AIzaSyDBNZHamE8jTV088f4SwKvncAwFtIAcXZU"; // <--- TU WKLEJ KLUCZ API
 
         async function generateWorkout() {
-    const goal = document.getElementById('goal').value;
-    const level = document.getElementById('level').value;
-    const resultBox = document.getElementById('ai-result');
-    const resultContent = document.getElementById('ai-content');
-    const spinner = document.getElementById('ai-spinner');
+    var goal = document.getElementById('goal').value;
+    var level = document.getElementById('level').value;
+    var resultBox = document.getElementById('ai-result');
+    var resultContent = document.getElementById('ai-content');
+    var spinner = document.getElementById('ai-spinner');
 
     resultBox.style.display = 'none';
     spinner.style.display = 'block';
     resultContent.innerHTML = '';
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-    const prompt = `Trener personalny DUO GYM. Styl: motywujący, konkretny, gym bro. 
-    Cel: ${goal}, Poziom: ${level}. 
-    Wypisz 3-4 ćwiczenia w punktach HTML (<ul>). Bez wstępu.`;
+    var url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey;
+    var prompt = 'Trener personalny DUO GYM. Styl: motywujący, konkretny, gym bro. Cel: ' + goal + ', Poziom: ' + level + '. Wypisz 3-4 ćwiczenia w punktach HTML (<ul><li>). Bez wstępu.';
 
-    const data = { contents: [{ parts: [{ text: prompt }] }] };
+    var data = { contents: [{ parts: [{ text: prompt }] }] };
 
     try {
-        const response = await fetch(url, { 
+        var response = await fetch(url, { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' }, 
             body: JSON.stringify(data) 
         });
-        const json = await response.json();
-        
-        // TYMCZASOWY DEBUG - pokaże dokładny błąd od Google
-        console.log("Odpowiedź Google:", JSON.stringify(json));
+        var json = await response.json();
         
         if (json.candidates && json.candidates[0]) {
             resultContent.innerHTML = json.candidates[0].content.parts[0].text
                 .replace(/```html/g, '').replace(/```/g, '');
         } else if (json.error) {
-            resultContent.innerHTML = `<p style="color: #ff5555;">Błąd Google API: <strong>${json.error.message}</strong> (kod: ${json.error.code})</p>`;
+            resultContent.innerHTML = '<p style="color: #ff5555;">Błąd: ' + json.error.message + '</p>';
         } else { 
-            resultContent.innerHTML = '<p style="color: #ff5555;">Nieznany błąd. Sprawdź konsolę (F12).</p>'; 
+            resultContent.innerHTML = '<p style="color: #ff5555;">Nieznany błąd. Sprawdź konsolę F12.</p>'; 
         }
     } catch (error) { 
-        resultContent.innerHTML = `<p style="color: #ff5555;">Błąd połączenia: ${error.message}</p>`; 
+        resultContent.innerHTML = '<p style="color: #ff5555;">Błąd połączenia: ' + error.message + '</p>'; 
     } finally { 
         spinner.style.display = 'none'; 
         resultBox.style.display = 'block'; 
     }
 }
+         if (!apiKey && window.location.hostname !== 'generativelanguage.googleapis.com') {
+                 alert("Uwaga: Aby trener AI działał, musisz uzupełnić klucz API w kodzie strony.");
+                 return;
+            }
 
             resultBox.style.display = 'none';
             spinner.style.display = 'block';
