@@ -1,6 +1,6 @@
 /* --- PANCERNY JS DLA DUO GYM (WERSJA WINDOW) --- */
 // Konfiguracja API
-const apiKey = "AIzaSyDBNZHamE8jTV088f4SwKvncAwFtIAcXZU"; // <--- TU WKLEJ KLUCZ API GOOGLE
+const apiKey = " ten klucz jest tylko na wp"; // <--- TU WKLEJ KLUCZ API GOOGLE
 
 // 1. FUNKCJA GENERUJĄCA TRENING
 window.generateWorkout = async function() {
@@ -21,7 +21,7 @@ window.generateWorkout = async function() {
     spinner.style.display = 'block';
     resultContent.innerHTML = '';
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
     const prompt = `Trener personalny DUO GYM. Styl: motywujący, konkretny, gym bro. 
     Cel: ${goal}, Poziom: ${level}. 
     Wypisz 3-4 ćwiczenia w punktach HTML (<ul>). Bez wstępu.`;
