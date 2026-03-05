@@ -1,0 +1,279 @@
+<!-- wp:html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Marce - Froya Fitness</title>
+    
+    <!-- Fonty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteka ikon (FontAwesome) z zabezpieczeniem -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+    <style>
+        /* --- 1. ZMIENNE I RESET --- */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        :root {
+            --neon-lime: #ccff00;
+            --neon-lime-glow: rgba(204, 255, 0, 0.6);
+            --neon-blue: #00f3ff;
+            --neon-blue-glow: rgba(0, 243, 255, 0.7);
+            --deep-bg: #050505;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background-color: #050505 !important;
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* FIX DLA IKON (Aby nie znikały na mobile) */
+        .fa-brands, .fa-solid, .fa, [class*=" fa-"] {
+            font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free" !important;
+            font-style: normal !important;
+            display: inline-block !important;
+            text-decoration: none !important;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 2. NAGŁÓWEK --- */
+        .brand-header {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .brand-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--neon-lime);
+            text-shadow: 0 0 25px var(--neon-lime-glow);
+        }
+        .neon-blue-text { 
+            color: var(--neon-blue) !important; 
+            text-shadow: 0 0 15px var(--neon-blue-glow) !important; 
+        }
+
+        /* --- 3. UKŁAD STRONY (HISTORIA) --- */
+        .story-section { padding-bottom: 80px; }
+        
+        .story-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            flex-wrap: wrap;
+        }
+        .story-row.reverse { flex-direction: row-reverse; }
+
+        .story-text { flex: 1; min-width: 300px; }
+        .story-image { 
+            flex: 1; 
+            min-width: 300px; 
+            height: 400px; 
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: 0.5s;
+        }
+        .story-image:hover img { opacity: 1; transform: scale(1.05); }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+        }
+
+        /* POPRAWKA: Dodanie efektu glow do nagłówków h2 w kartach */
+        .glass-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--neon-blue) !important;
+            text-shadow: 0 0 15px var(--neon-blue-glow) !important; /* Ten sam efekt co h1 */
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--neon-lime);
+            padding-left: 15px;
+        }
+
+        .highlight-box {
+            border-left: 4px solid var(--neon-lime);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #eee;
+        }
+
+        /* --- 4. STOPKA --- */
+        footer {
+            background: #080808;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 60px 0 40px;
+            width: 100%;
+        }
+        .footer-partners { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 30px; margin-bottom: 30px; }
+        .partners-row { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+        .partners-row img { max-height: 50px; filter: brightness(1.2); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer-info { text-align: right; flex-grow: 1; }
+        .social-icons { display: flex; justify-content: flex-end; gap: 20px; margin-bottom: 15px; }
+        .social-icons a { color: white !important; font-size: 1.6rem; text-decoration: none !important; transition: 0.3s; }
+        .social-icons a:hover { color: var(--neon-lime) !important; transform: translateY(-3px); }
+        .footer-links a { color: #666 !important; text-decoration: none !important; margin-left: 20px; font-size: 0.85rem; font-weight: 600; }
+        .footer-links a:hover { color: #fff !important; }
+
+        /* --- 5. RESPONSYWNOŚĆ --- */
+        @media (max-width: 768px) {
+            .brand-header { padding: 80px 0 40px; }
+            .story-row { gap: 30px; margin-bottom: 60px; }
+            .story-image { height: 250px; order: -1; } /* Zdjęcie nad tekstem na mobile */
+            .glass-card { padding: 1.5rem; }
+            .glass-card h2 { font-size: 1.4rem; }
+            .footer-bottom { flex-direction: column; }
+            .footer-info { text-align: right !important; width: 100%; }
+            .social-icons { justify-content: flex-end !important; }
+            .footer-links { display: flex; flex-direction: column; gap: 10px; }
+            .footer-links a { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="landing-wrapper" style="background-image: radial-gradient(circle at 0% 0%, rgba(0, 243, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(204, 255, 0, 0.1) 0%, transparent 50%); min-height: 100vh; display: flex; flex-direction: column;">
+    
+    <header class="brand-header">
+        <div class="container">
+            <h1>Froya <span class="neon-blue-text">Fitness</span></h1>
+            <p style="letter-spacing: 2px; text-transform: uppercase; font-weight: 600; opacity: 0.8; margin-top: 10px;">Poznaj moją historię</p>
+        </div>
+    </header>
+
+    <main class="story-section">
+        <div class="container">
+            
+            <!-- Sekcja 1: Początek -->
+            <div class="story-row">
+                <div class="story-text">
+                    <div class="glass-card">
+                        <h2>Zaczęło się od frustracji</h2>
+                        <p>Cześć! Skoro tu jesteś, pewnie zastanawiasz się, skąd wzięło się <strong>Froya Fitness</strong>. Wszystko zaczęło się od prostego problemu: wypadające przedmioty z mojej kieszeni albo strach przed upadkiem telefonu na podłogę. Miałem dość sprzętu, który albo był drogi i nudny, albo tani i rozpadał się po trzech treningach.</p>
+                        <p>Szukałem czegoś, co będzie "smart" – czegoś, co faktycznie sprawi, że będę mógł trenować ze spokojną głową bez stresu, że coś mi zaraz wyleci z kieszeni albo, że zaraz nadepnę na swoje rzeczy. Tak narodził się pomysł na Duo Gym.</p>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://placehold.co/600x800/111/fff?text=TU+TWOJE+ZDJECIE+1" alt="Historia marki">
+                </div>
+            </div>
+
+            <!-- Sekcja 2: Dlaczego Polska? -->
+            <div class="story-row reverse">
+                <div class="story-text">
+                    <div class="glass-card">
+                        <h2>Nowoczesna Myśl</h2>
+                        <p> Testowałem wiele tych produktów z Chin zanim znalazłem coś czym mógłbym się podzielić bo wiem, że te słabe jakościowo rzeczy nie obronią się i po prostu będzie mi wstyd. <strong> chcę stworzyć coś, pod czym podpiszę się własnym nazwiskiem.</strong></p>
+                        <div class="highlight-box">
+                            "Froya Fitness to marka, która powstała tutaj, w Polsce. Od pomysłu, przez testy, aż po finalny produkt."
+                        </div>
+                        <p>Zależało mi, żeby pokazać, że Polska marka może być synonimem innowacji i designu, który nie ustępuje światowym gigantom. Jednak potrzebuję do tego społeczności, dzięki której uda mi się udowodnić, że osiąganie celu staje się łatwiejsze</p>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://placehold.co/600x800/111/fff?text=TU+TWOJE+ZDJECIE+2" alt="Polska marka">
+                </div>
+            </div>
+
+            <!-- Sekcja 3: Misja -->
+            <div class="story-row">
+                <div class="story-text">
+                    <div class="glass-card">
+                        <h2>Moja Misja</h2>
+                        <p>Duo Gym to dopiero początek. Moim celem jest budowa społeczności ludzi, którzy trenują mądrze. Wiem, że nie zrewolucjonizuje tym rynku ale wiem, że pomoże to spokojnie skupić się na celu, który sobie wyznaczyliście.</p>
+                        <p>Dziękuję, że jesteś częścią tej drogi, dziękuje za zaufanie.</p>
+                        <p style="font-family: 'Montserrat'; font-weight: 900; color: var(--neon-lime); margin-top: 30px;">– Łukasz, Twórca Froya Fitness</p>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://placehold.co/600x800/111/fff?text=TU+TWOJE+ZDJECIE+3" alt="Misja Froya Fitness">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- STOPKA -->
+    <footer>
+        <div class="container">
+            <div class="footer-partners">
+                <p style="color: #444; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 700; font-family: 'Montserrat';">Logistyka i Płatności:</p>
+                <div class="partners-row">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/pobrane.png" alt="InPost">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/blik.jpg" alt="BLIK">
+                    <img src="https://froyafitness.pl/wp-content/uploads/2026/02/payU.png" alt="PayU">
+<img src="https://froyafitness.pl/wp-content/uploads/2026/02/Tpay.png" alt="Tpay">
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="https://placehold.co/150x50/transparent/white?text=DUO+GYM" alt="Logo">
+                </div>
+                <div class="footer-info">
+                    <div class="social-icons">
+                        <a href="https://instagram.com/froyafitness" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@froya.fitness" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://facebook.com/froyafitness" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                    <p style="margin: 0; color: #bbb; font-weight: 600;">kontakt@froyafitness.pl</p>
+                    <div class="footer-links" style="margin-top: 10px;">
+                        <a href="/regulamin">Regulamin</a>
+                        <a href="/polityka-prywatnosci">Polityka Prywatności</a>
+                    </div>
+                    <p style="margin-top: 25px; font-size: 0.75rem; color: #444; text-transform: uppercase;">&copy; 2026 DUO GYM / Froya Fitness.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
+<!-- /wp:html --
+<!-- /wp:html -->
